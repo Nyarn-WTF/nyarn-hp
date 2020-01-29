@@ -1,21 +1,16 @@
-// web.go
 package main
 
 import (
-    "fmt"
-    "net/http"
-    "os"
+    "github.com/gin-gonic/gin"
 )
 
 func main() {
-    http.HandleFunc("/", hello)
-    fmt.Println("listening...")
-    err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
-    if err != nil {
-      panic(err)
-    }
-}
+    router := gin.Default()
+    router.LoadHTMLGlob("templates/*.html")
 
-func hello(res http.ResponseWriter, req *http.Request) {
-    fmt.Fprintln(res, "hello, world")
+    router.GET("/", func(ctx *gin.Context){
+        ctx.HTML(200, "pages/index.html", gin.H{})
+    })
+
+    router.Run()
 }
