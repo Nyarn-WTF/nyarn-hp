@@ -5,20 +5,52 @@
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!-- Compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Nyarn HP</title>
     </head>
     <body>
-        <nav>
-            <div class="nav-wrapper indigo">
-              <a href="/" class="brand-logo">Nyarn HP</a>
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/"><i class="material-icons">home</i></a></li>
-                <li><a href="products.html"><i class="material-icons">attachment</i></a></li>
-                <li><a href="contact.html"><i class="material-icons">mail</i></a></li>
-              </ul>
-            </div>
-          </nav>
+      <nav>
+        <div class="nav-wrapper indigo">
+          <a href="/" class="brand-logo center">Nyarn HP</a>
+          <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+                
+          </ul>
+        </div>
+      </nav>
+      
+      <ul class="sidenav " id="slide-out">
+        <li><a href="/"><i class="material-icons">home</i>home</a></li>
+        <li><a href="products.html"><i class="material-icons">attachment</i>products</a></li>
+        <li><a href="contact.html"><i class="material-icons">mail</i>contact</a></li>
+      </ul>
+      
+
+      <h1>工事中</h1>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.sidenav');
+          var instances = M.Sidenav.init(elems, {});
+        });
+
+        $(document).ready(function(){
+          $('.sidenav').sidenav();
+        });
+      </script>
+
+      <style>
+        header, main, footer {
+          padding-left: 300px;
+        }
+
+        @media only screen{
+          nav a.button-collapse {
+            display: block;
+          }
+        }
+      </style>
+
     </body>
 </html>
