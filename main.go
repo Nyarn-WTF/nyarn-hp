@@ -20,5 +20,5 @@ func main() {
 		ctx.HTML(200, "products.html", gin.H{})
 	})
 
-	router.Run()
+	router.Run(":443")
 }
